@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@model MeetingOrganizer.ViewModel.ToplantiViewModel
+
+<h2>Toplantı Ekle</h2>
+
+<div align="center">
+    @using (Html.BeginForm("create", "Home", FormMethod.Post))
+    {
+        <table class="table">
+            <tr>
+                <td>@Html.LabelFor(model => model.toplanti.ToplantiKonusu)</td>
+                <td>@Html.TextBoxFor(model => model.toplanti.ToplantiKonusu, new { @placeholder ="Boş geçmeyin" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.toplanti.Katilimcilar)</td>
+                <td>@Html.TextBoxFor(model => model.toplanti.Katilimcilar, new { @placeholder = "Boş geçmeyin" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.toplanti.Tarih)</td>
+                <td>@Html.TextBoxFor(model => model.toplanti.Tarih, new { @class = "datepicker", @readonly = "readonly", @placeholder = "Boş geçmeyin" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.toplanti.Baslanngic_Zamani)</td>
+                <td>@Html.TextBoxFor(model => model.toplanti.Baslanngic_Zamani, new { @placeholder = "Boş geçmeyin" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.toplanti.Bitis_Zamani)</td>
+                <td>@Html.TextBoxFor(model => model.toplanti.Bitis_Zamani, new { @placeholder = "Boş geçmeyin" })</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Kaydet" />
+                </td>
+            </tr>
+
+        </table>
+    }
+</div>
+

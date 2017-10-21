@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2> Toplantı Listesi </h2>
+
+<div align="center">
+    <a href="@Url.Action("Create","Home")">Yeni Toplantı Ekle</a><br /><br />
+    <table cellpadding="2" class="table" cellspacing="2" border="1">
+        <tr class="btn-primary">
+            <th>Toplantı Konusu</th>
+            <th>Katılımcılar</th>
+            <th>Tarih</th>
+            <th>Başlangıç Zamanı</th>
+            <th>Bitiş Zamanı</th>
+            <th>Sil</th>
+            <th>Düzenle</th>
+        </tr>
+
+        @foreach (var toplanti in ViewBag.listToplanti)
+        {
+            <tr class="btn-success">
+                <td>@toplanti.ToplantiKonusu</td>
+                <td>@toplanti.Katilimcilar</td>
+                <td>@toplanti.Tarih</td>
+                <td>@toplanti.Baslanngic_Zamani</td>
+                <td>@toplanti.Bitis_Zamani</td>
+                <td><a style="color:white;" onclick="return confirm('Silmek istiyor musunuz?')" href="@Url.Action("Delete","Home",new {id=toplanti.Id })">Sil</a></td>
+                <td><a style="color:white;" href="@Url.Action("Edit","Home",new { id= toplanti.Id })">Düzenle</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+@model MeetingOrganizer.ViewModel.ToplantiViewModel
+
+<h2>Toplantı Düzenle</h2>
+
+<div align="center" width="500px">
+
+    @using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+    {
+        <table class="table" width="400px" cellpadding="20">
+            <tr class="btn-default">
+                <td>@Html.LabelFor(model => model.toplanti.ToplantiKonusu)</td>
+                <td>@Html.TextBoxFor(model => model.toplanti.ToplantiKonusu, new { @placeholder = "Boş geçmeyin" })</td>
+            </tr>
+            <tr class="btn-default">
+                <td>@Html.LabelFor(model => model.toplanti.Katilimcilar)</td>
+                <td>@Html.TextBoxFor(model => model.toplanti.Katilimcilar, new { @placeholder = "Boş geçmeyin" })</td>
+            </tr>
+            <tr class="btn-default">
+                <td>@Html.LabelFor(model => model.toplanti.Tarih)</td>
+                <td>@Html.TextBoxFor(model => model.toplanti.Tarih, new { @class = "datepicker", @readonly = "readonly", @placeholder = "Boş geçmeyin" })</td>
+            </tr>
+            <tr class="btn-default">
+                <td>@Html.LabelFor(model => model.toplanti.Baslanngic_Zamani)</td>
+                <td>@Html.TextBoxFor(model => model.toplanti.Baslanngic_Zamani, new { @placeholder = "Boş geçmeyin" })</td>
+            </tr>
+            <tr class="btn-default">
+                <td>@Html.LabelFor(model => model.toplanti.Bitis_Zamani)</td>
+                <td>@Html.TextBoxFor(model => model.toplanti.Bitis_Zamani, new { @placeholder = "Boş geçmeyin" })</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Kaydet" />&nbsp; <a class="btn-primary" href="@Url.Action("Index","Home")">Back</a>@Html.HiddenFor(model => model.toplanti.Id)
+                </td>
+                
+            </tr>
+        </table>
+    }
+
+</div>
